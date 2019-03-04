@@ -25,8 +25,8 @@ const getTemplatePath = localPath.getTemplatePath
 program
   .usage('<template-name> [project-name]')
   .option('-c, --clone', 'use git clone')
-  .option('--offline', 'use cached template')
-  .option('--repo', 'use a custom repo, default: "vot-admin-templates/"')
+  .option('-o, --offline', 'use cached template')
+  .option('-r, --repo [path]', 'use a custom repo, default: "vot-admin-templates/"')
 
 /**
  * Help
@@ -62,7 +62,8 @@ const inPlace = !projectName || projectName === '.'
 const name = inPlace ? path.relative('../', process.cwd()) : projectName
 const to = path.resolve(projectName || '.')
 const clone = program.clone || false
-const repo = program.repo || 'vot-admin-templates/'
+// the template repo url
+const repo = program.repo || 'ura-admin-templates/'
 
 /**
  * Cached path | templates in local path

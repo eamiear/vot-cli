@@ -11,8 +11,8 @@ program
   .command('init <template-name> <project-name>')
   .description('generate a project from a template')
   .option('-c, --clone', 'use git clone when fetching remote template')
-  .option('--offline', 'use cached template')
-  .option('--repo', 'use a custom repo, default: "ura-admin-templates/"')
+  .option('-o, --offline', 'use cached template')
+  .option('-r, --repo [path]', 'use a custom repo, default: "ura-admin-templates/"')
   .action(() => {
     require('./vot-init')
   })
@@ -20,7 +20,7 @@ program
 program
   .command('list')
   .description('list available online templates')
-  .option('--repo', 'use a custom online repo, default: "https://api.github.com/users/ura-admin-templates/repos"')
+  .option('-r, --repo [url]', 'use a custom online repo, default: "https://api.github.com/users/ura-admin-templates/repos"')
   .action(() => {
     require('./vot-list')
   })

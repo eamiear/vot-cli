@@ -6,9 +6,12 @@ const chalk = require('chalk')
 const ora = require('ora')
 const logger = require('../lib/logger')
 
-const repo = program.repo || 'https://api.github.com/users/ura-admin-templates/repos'
 program
-  .option('--repo', 'use a custom online repo, default: "https://api.github.com/users/ura-admin-templates/repos"')
+  .option('-r, --repo [url]', 'use a custom online repo, default: "https://api.github.com/users/ura-admin-templates/repos"')
+  .parse(process.argv)
+
+// the templates reop url
+const repo = program.repo || 'https://api.github.com/users/ura-admin-templates/repos'
 
 /**
  * Padding
