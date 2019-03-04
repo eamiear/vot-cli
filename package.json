@@ -1,0 +1,37 @@
+{
+  "name": "vat",
+  "version": "1.0.0",
+  "description": "A tool CLI",
+  "preferGlobal": true,
+  "bin": {
+    "vat": "bin/vat",
+    "vue-init": "bin/vue-init",
+    "vue-list": "bin/vue-list"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {},
+  "dependencies": {
+    "async": "^2.6.2",
+    "chalk": "^2.4.2",
+    "commander": "^2.19.0",
+    "consolidate": "^0.15.1",
+    "download-git-repo": "^1.1.0",
+    "envinfo": "^7.1.0",
+    "figlet": "^1.2.1",
+    "handlebars": "^4.1.0",
+    "inquirer": "^6.2.2",
+    "metalsmith": "^2.3.0",
+    "minimatch": "^3.0.4",
+    "multimatch": "^3.0.0",
+    "ora": "^3.2.0",
+    "read-metadata": "^1.0.0",
+    "request": "^2.88.0",
+    "tildify": "^1.2.0",
+    "user-home": "^2.0.0",
+    "validate-npm-package-name": "^3.0.0"
+  }
+}
