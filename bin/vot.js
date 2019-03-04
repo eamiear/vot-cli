@@ -3,6 +3,19 @@
 const program = require('commander')
 const chalk = require('chalk')
 
+const figlet = require('figlet');
+
+figlet('vot cli', {
+  horizontalLayout: 'full',
+}, function(err, data) {
+    if (err) {
+        console.log('Something went wrong...');
+        console.dir(err);
+        return;
+    }
+    console.log(data)
+});
+
 program
   .version(require('../package').version)
   .usage('<command> [options]')
