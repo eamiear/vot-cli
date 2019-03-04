@@ -11,8 +11,16 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:eamiear/vat-cli.git"
+  },
+  "keywords": [
+    "cli",
+    "tool"
+  ],
+  "author": "eamiear",
+  "license": "MIT",
   "devDependencies": {},
   "dependencies": {
     "async": "^2.6.2",
