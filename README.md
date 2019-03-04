@@ -1,13 +1,13 @@
-# vat cli
+# ura cli
 
 ## Install
 ```
-npm install -g vat
+npm install -g ura
 ```
 
 ## Usage
 ```
-Usage: vat <command> [options]
+Usage: ura <command> [options]
 
 Options:
   -V, --version                                  output the version number
@@ -18,5 +18,5 @@ Commands:
   list [options]                                 list available online templates
   info                                           print debugging information about your environment
 
-  Run vat <command> --help for detailed usage of given command.
+  Run ura <command> --help for detailed usage of given command.
 ```

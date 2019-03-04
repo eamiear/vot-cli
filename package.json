@@ -1,19 +1,19 @@
 {
-  "name": "vat",
+  "name": "ura",
   "version": "1.0.0",
   "description": "A tool CLI",
   "preferGlobal": true,
   "bin": {
-    "vat": "bin/vat",
-    "vue-init": "bin/vue-init",
-    "vue-list": "bin/vue-list"
+    "ura": "bin/ura",
+    "ura-init": "bin/ura-init",
+    "ura-list": "bin/ura-list"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:eamiear/vat-cli.git"
+    "url": "git@github.com:eamiear/ura-cli.git"
   },
   "keywords": [
     "cli",

@@ -27,7 +27,7 @@ spinner.start()
 request({
   url: repo,
   headers: {
-    'User-Agent': 'vat-cli'
+    'User-Agent': 'ura-cli'
   }
 }, (err, res, body) => {
   spinner.stop()
