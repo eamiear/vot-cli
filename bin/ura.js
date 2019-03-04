@@ -14,7 +14,7 @@ program
   .option('--offline', 'use cached template')
   .option('--repo', 'use a custom repo, default: "ura-admin-templates/"')
   .action(() => {
-    require('./ura-init')
+    require('./vot-init')
   })
 
 program
@@ -22,7 +22,7 @@ program
   .description('list available online templates')
   .option('--repo', 'use a custom online repo, default: "https://api.github.com/users/ura-admin-templates/repos"')
   .action(() => {
-    require('./ura-list')
+    require('./vot-list')
   })
 
 // Get system info
@@ -30,7 +30,7 @@ program
   .command('info')
   .description('print debugging information about your environment')
   .action(() => {
-    require('./ura-info')
+    require('./vot-info')
   })
 
 // output help information on unknown commands
@@ -45,7 +45,7 @@ program
 // add some useful info on help
 program.on('--help', () => {
   console.log()
-  console.log(`  Run ${chalk.cyan(`ura <command> --help`)} for detailed usage of given command.`)
+  console.log(`  Run ${chalk.cyan(`vot <command> --help`)} for detailed usage of given command.`)
   console.log()
 })
 

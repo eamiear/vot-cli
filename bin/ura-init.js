@@ -26,7 +26,7 @@ program
   .usage('<template-name> [project-name]')
   .option('-c, --clone', 'use git clone')
   .option('--offline', 'use cached template')
-  .option('--repo', 'use a custom repo, default: "ura-admin-templates/"')
+  .option('--repo', 'use a custom repo, default: "vot-admin-templates/"')
 
 /**
  * Help
@@ -62,12 +62,12 @@ const inPlace = !projectName || projectName === '.'
 const name = inPlace ? path.relative('../', process.cwd()) : projectName
 const to = path.resolve(projectName || '.')
 const clone = program.clone || false
-const repo = program.repo || 'ura-admin-templates/'
+const repo = program.repo || 'vot-admin-templates/'
 
 /**
  * Cached path | templates in local path
  */
-const cachePath = path.join(home, '.ura-templates', template.replace(/[\/:]/g, '-'))
+const cachePath = path.join(home, '.vot-templates', template.replace(/[\/:]/g, '-'))
 if (program.offline) {
   console.log(`> Use cached template at ${chalk.yellow(tildify(cachePath))}`)
   template = cachePath

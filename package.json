@@ -1,19 +1,19 @@
 {
-  "name": "ura",
+  "name": "vot",
   "version": "1.0.0",
   "description": "A tool CLI",
   "preferGlobal": true,
   "bin": {
-    "ura": "bin/ura",
-    "ura-init": "bin/ura-init",
-    "ura-list": "bin/ura-list"
+    "vot": "bin/vot",
+    "vot-init": "bin/vot-init",
+    "vot-list": "bin/vot-list"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:eamiear/ura-cli.git"
+    "url": "git@github.com:eamiear/vot-cli.git"
   },
   "keywords": [
     "cli",

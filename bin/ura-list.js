@@ -27,7 +27,7 @@ spinner.start()
 request({
   url: repo,
   headers: {
-    'User-Agent': 'ura-cli'
+    'User-Agent': 'vot-cli'
   }
 }, (err, res, body) => {
   spinner.stop()

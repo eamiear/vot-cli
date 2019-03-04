@@ -1,13 +1,13 @@
-# ura cli
+# vot cli
 
 ## Install
 ```
-npm install -g ura
+npm install -g vot
 ```
 
 ## Usage
 ```
-Usage: ura <command> [options]
+Usage: vot <command> [options]
 
 Options:
   -V, --version                                  output the version number
@@ -18,5 +18,5 @@ Commands:
   list [options]                                 list available online templates
   info                                           print debugging information about your environment
 
-  Run ura <command> --help for detailed usage of given command.
+  Run vot <command> --help for detailed usage of given command.
 ```
