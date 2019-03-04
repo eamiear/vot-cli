@@ -4,9 +4,10 @@
   "description": "A tool CLI",
   "preferGlobal": true,
   "bin": {
-    "vot": "bin/vot",
-    "vot-init": "bin/vot-init",
-    "vot-list": "bin/vot-list"
+    "vot": "bin/vot.js",
+    "vot-init": "bin/vot-init.js",
+    "vot-list": "bin/vot-list.js",
+    "vot-info": "bin/vot-info.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -16,6 +17,7 @@
     "url": "git@github.com:eamiear/vot-cli.git"
   },
   "keywords": [
+    "vot",
     "cli",
     "tool"
   ],
