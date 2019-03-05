@@ -82,7 +82,9 @@ process.on('exit', () => {
   console.log()
 })
 
-// in current place or target directory exists
+/**
+ * In current place or target directory exists
+ */
 if (inPlace || exists(to)) {
   inquirer.prompt([{
     type: 'confirm',

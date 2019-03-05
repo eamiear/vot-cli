@@ -3,8 +3,8 @@
 const program = require('commander')
 const chalk = require('chalk')
 
+// turn text to ascii
 const figlet = require('figlet');
-
 figlet('vot cli', {
   horizontalLayout: 'full',
 }, function(err, data) {
@@ -62,8 +62,10 @@ program.on('--help', () => {
   console.log()
 })
 
+// Parse input arguments
 program.parse(process.argv)
 
+// output help message without input arguments
 if (!process.argv.slice(2).length) {
   program.outputHelp()
 }

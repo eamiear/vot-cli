@@ -10,7 +10,9 @@ program
   .option('-r, --repo [url]', 'use a custom online repo, default: "https://api.github.com/users/ura-admin-templates/repos"')
   .parse(process.argv)
 
-// the templates reop url
+/**
+ * Get templates reop url
+ */
 const repo = program.repo || 'https://api.github.com/users/ura-admin-templates/repos'
 
 /**
