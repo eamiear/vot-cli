@@ -1,24 +1,24 @@
 const chalk = require('chalk')
 const Metalsmith = require('metalsmith')
 const Handlebars = require('handlebars')
-const async = require('async')
+import async = require('async')
 const render = require('consolidate').handlebars.render
 const path = require('path')
 const multimatch = require('multimatch')
 
-const getOptions = require('../lib/options')
-const logger = require('../lib/logger')
-const ask = require('../lib/ask')
-const filter = require('../lib/filter')
+const getOptions = require('./options')
+const logger = require('./logger')
+const ask = require('./ask')
+const filter = require('./filter')
 
  // register handlebars helper
-Handlebars.registerHelper('if_eq', function (a, b, opts) {
+Handlebars.registerHelper('if_eq', function (a: any, b: any, opts: any) {
   return a === b
     ? opts.fn(this)
     : opts.inverse(this)
 })
 
-Handlebars.registerHelper('unless_eq', function (a, b, opts) {
+Handlebars.registerHelper('unless_eq', function (a: any, b: any, opts: any) {
   return a === b
     ? opts.inverse(this)
     : opts.fn(this)
@@ -30,7 +30,7 @@ Handlebars.registerHelper('unless_eq', function (a, b, opts) {
  * @param {String} dest project destination
  * @param {Function} done
  */
-module.exports = function generate (name, src, dest, done) {
+module.exports = function generate (name: string, src: string, dest: string, done: (...arg: any) => {}) {
   const opts = getOptions(name, src)
   // template directory for metalsmith source entry
   const metalsmith = Metalsmith(path.join(src, 'template'))
@@ -62,7 +62,7 @@ module.exports = function generate (name, src, dest, done) {
   metalsmith.clean(false)
     .source('.')
     .destination(dest)
-    .build((err, files) => {
+    .build((err: any, files: any) => {
       done(err)
       if (typeof opts.complete === 'function') {
         const helpers = { chalk, logger, files }
@@ -77,8 +77,8 @@ module.exports = function generate (name, src, dest, done) {
  * Create a middleware for asking questions
  * @param {Object} prompts
  */
-function askQuestions (prompts) {
-  return (files, metalsmith, done) => {
+function askQuestions (prompts: any) {
+  return (files: any, metalsmith: any, done: (...args: any) => {}) => {
     ask(prompts, metalsmith.metadata(), done)
   }
 }
@@ -89,17 +89,17 @@ function askQuestions (prompts) {
  * @param {Object} filters
  * @return {Function}
  */
-function filterFiles (filters) {
-  return (files, metalsmith, done) => {
+function filterFiles (filters: any) {
+  return (files: any, metalsmith: any, done: any) => {
     filter(files, filters, metalsmith.metadata(), done)
   }
 }
 
-function renderTemplateFiles (skipInterpolation) {
+function renderTemplateFiles (skipInterpolation: any) {
   skipInterpolation = typeof skipInterpolation === 'string'
     ? [skipInterpolation]
     : skipInterpolation
-  return (files, metalsmith, done) => {
+  return (files: any, metalsmith: any, done: any) => {
     const keys = Object.keys(files)
     const metalsmithMetadata = metalsmith.metadata()
     async.each(keys, (file, next) => {
@@ -114,7 +114,7 @@ function renderTemplateFiles (skipInterpolation) {
         return next()
       }
       // render template string with metadata by handlebars template engine
-      render(str, metalsmithMetadata, (err, res) => {
+      render(str, metalsmithMetadata, (err: any, res: any) => {
         if (err) {
           err.message = `[${file}] ${err.message}`
           return next(err)
@@ -131,13 +131,13 @@ function renderTemplateFiles (skipInterpolation) {
  * @param {String} message
  * @param {Object} data
  */
-function logMessage (message, data) {
+function logMessage (message: string, data: any) {
   if (!message) return
-  render(message, data, (err, res) => {
+  render(message, data, (err: any, res: any) => {
     if (err) {
       console.error('\n   Error when rendering template complete message: ' + err.message.trim())
     } else {
-      console.log('\n' + res.split(/\r?\n/g).map(line => '   ' + line).join('\n'))
+      console.log('\n' + res.split(/\r?\n/g).map((line: any) => '   ' + line).join('\n'))
     }
   })
 }

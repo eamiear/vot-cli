@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
+import chalk from'chalk'
 const program = require('commander')
 const request = require('request')
-const chalk = require('chalk')
 const ora = require('ora')
-const logger = require('../lib/logger')
+const logger = require('../logger')
 
 program
   .option('-r, --repo [url]', 'use a custom online repo, default: "https://api.github.com/users/ura-admin-templates/repos"')
@@ -34,7 +34,7 @@ request({
   headers: {
     'User-Agent': 'vot-cli'
   }
-}, (err, res, body) => {
+}, (err: any, res: any, body: any) => {
   spinner.stop()
   if (err) logger.fatal(err)
   const requestBody = JSON.parse(body)

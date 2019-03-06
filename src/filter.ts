@@ -9,7 +9,7 @@ const evaluate = require('./eval')
  * @param data metalsmith.metadata()
  * @param done
  */
-module.exports = (files, filters, data, done) => {
+module.exports = (files: any, filters: any, data: any, done: () => {}) => {
   if (!filters) {
     return done()
   }

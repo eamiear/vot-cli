@@ -1,15 +1,15 @@
-const async = require('async')
+import async = require('async')
 const inquirer = require('inquirer')
 const evalute = require('./eval')
 
-const promptMapping = {
+const promptMapping: any = {
   string: 'input',
   boolean: 'confirm'
 }
 
-module.exports = function ask (prompts, data, done) {
-  async.eachSeries(Object.keys(prompts), (key, next) => {
-    prompt(data, key, prompts[key], next)
+module.exports = function ask (prompts: any, data: any, done: () => {}) {
+  async.eachSeries(Object.keys(prompts), (key: string, next) => {
+    prompts(data, key, prompts[key], next)
   }, done)
 }
 
@@ -20,7 +20,7 @@ module.exports = function ask (prompts, data, done) {
  * @param {Object} prompt vot.meta.json
  * @param {Function} done
  */
-function prompt (data, key, prompt, done) {
+function prompts (data: any, key: string, prompt: any, done: () => {}) {
   // skip prompts whose when condition is not met
   if (prompt.when && !evalute(prompt.when, data)) {
     return done()
@@ -30,7 +30,7 @@ function prompt (data, key, prompt, done) {
   let promptDefault = prompt.default
   if (typeof prompt.default === 'function') {
     promptDefault = function () {
-      return prompt.default.bind(this)(data)
+      return prompt.default.bind()(data)
     }
   }
 
@@ -41,10 +41,10 @@ function prompt (data, key, prompt, done) {
     default: promptDefault,
     choices: prompt.choices || [],
     validate: prompt.validate || (() => true)
-  }]).then(answers => {
+  }]).then((answers: any) => {
     if (Array.isArray(answers[key])) {
       data[key] = {}
-      answers[key].forEach(multiChoiceAnswer => {
+      answers[key].forEach((multiChoiceAnswer: any) => {
         data[key][multiChoiceAnswer] = true
       })
     } else if (typeof answers[key] === 'string') {

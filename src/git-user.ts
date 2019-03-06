@@ -1,12 +1,12 @@
-const exec = require('child_process').execSync
+import { execSync } from 'child_process'
 
-module.exports = () => {
+module.exports = (): string => {
   let name
   let email
 
   try {
-    name = exec('git config --get user.name')
-    email = exec('git config --get user.email')
+    name = execSync('git config --get user.name')
+    email = execSync('git config --get user.email')
   } catch (error) {}
   // name = "username", remove quotes
   name = name && JSON.stringify(name.toString().trim()).slice(1, -1)

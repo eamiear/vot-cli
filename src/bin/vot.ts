@@ -7,7 +7,7 @@ const chalk = require('chalk')
 const figlet = require('figlet');
 figlet('vot cli', {
   horizontalLayout: 'full',
-}, function(err, data) {
+}, function(err: any, data: any) {
     if (err) {
         console.log('Something went wrong...');
         console.dir(err);
@@ -49,7 +49,7 @@ program
 // output help information on unknown commands
 program
   .arguments('<command>')
-  .action((cmd) => {
+  .action((cmd: any) => {
     program.outputHelp()
     console.log(`  ` + chalk.red(`Unknown command ${chalk.yellow(cmd)}.`))
     console.log()

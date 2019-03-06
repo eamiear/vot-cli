@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
+import chalk from 'chalk'
+import ora from 'ora'
 const envinfo = require('envinfo')
-const chalk = require('chalk')
-const ora = require('ora')
 
 /**
  * Padding
@@ -28,7 +28,7 @@ envinfo.run(
     duplicates: true,
     fullTree: true
   }
-).then(info => {
+).then((info: any) => {
   spinner.stop()
   console.log(info)
 })

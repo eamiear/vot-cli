@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+import chalk from 'chalk'
 const download = require('download-git-repo')
 const program = require('commander')
 const exists = require('fs').existsSync
@@ -7,12 +8,11 @@ const path = require('path')
 const ora = require('ora')
 const home = require('user-home')
 const tildify = require('tildify')
-const chalk = require('chalk')
 const inquirer = require('inquirer')
 const rm = require('rimraf').sync
-const logger = require('../lib/logger')
-const generate = require('../lib/generate')
-const localPath = require('../lib/local-path')
+const logger = require('../logger')
+const generate = require('../generate')
+const localPath = require('../local-path')
 
 const isLocalPath = localPath.isLocalPath
 const getTemplatePath = localPath.getTemplatePath
@@ -92,7 +92,7 @@ if (inPlace || exists(to)) {
       ? 'Generate project in current directory?'
       : 'Target directory exists. Continue?',
     name: 'ok'
-  }]).then(answer => {
+  }]).then((answer: any) => {
     if (answer.ok) {
       run()
     }
@@ -109,7 +109,7 @@ function run () {
   if (isLocalPath(template)) {
     const templatePath = getTemplatePath(template)
     if (exists(templatePath)) {
-      generate(name, templatePath, to, err => {
+      generate(name, templatePath, to, (err: any) => {
         if (err) logger.fatal(err)
         console.log()
         logger.success('Generated "%s".', name)
@@ -132,17 +132,17 @@ function run () {
  * Download a generate from a template repo
  */
 
-function downloadAndGenerate (template) {
+function downloadAndGenerate (template: string) {
   const spinner = ora('downloading template')
   spinner.start()
   // Remove if local template exists
   if (exists(cachePath)) rm(cachePath)
   // download template online and save it to local path
-  download(template, cachePath, { clone }, err => {
+  download(template, cachePath, { clone }, (err: any) => {
     spinner.stop()
     if (err) logger.fatal('Failed to download repo ' + template + ': ' + err.message.trim())
     // generate project named name with template in cachePath and save it to 'to' path
-    generate(name, cachePath, to, err => {
+    generate(name, cachePath, to, (err: any) => {
       if (err) logger.fatal(err)
       console.log()
       logger.success('Generated "%s".', name)

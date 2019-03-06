@@ -1,5 +1,3 @@
-const chalk = require('chalk')
-
 /**
  * Evaluate an expression in meta.json in the context of
  * prompt answers data.
@@ -15,7 +13,7 @@ const chalk = require('chalk')
  * //--> lint
  *
  */
-module.exports = function evalute (exp, data) {
+module.exports = function evalute (exp: string, data: object) {
    /* eslint-disable no-new-func */
    // return value of key exp in the context of data. like data.exp
   const fn = new Function('data', 'width (data) { return ' + exp +'}')

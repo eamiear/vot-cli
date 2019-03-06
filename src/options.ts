@@ -1,4 +1,4 @@
-const path = require('path')
+import path from'path'
 const metadata = require('read-metadata')
 const exists = require('fs').existsSync
 const getGisUser = require('./git-user')
@@ -9,7 +9,7 @@ const validateName = require('validate-npm-package-name')
  * @param {String} name project name
  * @param {String} dir template source directory
  */
-module.exports = function options (name, dir) {
+module.exports = function options (name: string, dir: string) {
   const opts = getMetadata(dir)
 
   setDefault(opts, 'name', name)
@@ -27,7 +27,7 @@ module.exports = function options (name, dir) {
  * Gets the metadata from either a vot.meta.json or vot.meta.js file in given directory
  * @param {String} dir template directory
  */
-function getMetadata (dir) {
+function getMetadata (dir: string) {
   const json = path.join(dir, 'vot.meta.json')
   const js = path.join(dir, 'vot.meta.js')
   let opts = {}
@@ -52,7 +52,7 @@ function getMetadata (dir) {
  * @param {String} key
  * @param {String} val
  */
-function setDefault (opts, key, val) {
+function setDefault (opts: any, key: string, val: string) {
   const prompts = opts.prompts || (opts.prompts = {})
   if (!prompts[key] || typeof prompts[key] !== 'object') {
     prompts[key] = {
@@ -68,10 +68,10 @@ function setDefault (opts, key, val) {
  * Validate project name
  * @param {Object} opts
  */
-function setValidateName (opts) {
+function setValidateName (opts: any) {
   const name = opts.prompts.name
   const customValidate = name.validateName
-  name.validate = name => {
+  name.validate = (name: any): boolean | string => {
     const its = validateName(name)
     if (!its.validForNewPackages) {
       const errors = (its.errors || []).concat(its.warnings || [])

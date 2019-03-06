@@ -1,13 +1,13 @@
 {
   "name": "vot",
-  "version": "1.0.3",
+  "version": "1.0.0",
   "description": "A tool CLI",
   "preferGlobal": true,
   "bin": {
-    "vot": "bin/vot.js",
-    "vot-init": "bin/vot-init.js",
-    "vot-list": "bin/vot-list.js",
-    "vot-info": "bin/vot-info.js"
+    "vot": "dist/bin/vot.js",
+    "vot-init": "dist/bin/vot-init.js",
+    "vot-list": "dist/bin/vot-list.js",
+    "vot-info": "dist/bin/vot-info.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -23,7 +23,11 @@
   ],
   "author": "eamiear",
   "license": "MIT",
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/async": "^2.4.1",
+    "@types/node": "^11.10.4",
+    "@types/ora": "^3.1.0"
+  },
   "dependencies": {
     "async": "^2.6.2",
     "chalk": "^2.4.2",
