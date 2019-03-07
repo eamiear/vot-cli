@@ -17,7 +17,7 @@ figlet('vot cli', {
 });
 
 program
-  .version(require('../package').version)
+  .version(require('../../package').version)
   .usage('<command> [options]')
 
 program

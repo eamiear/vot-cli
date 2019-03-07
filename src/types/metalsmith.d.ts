@@ -41,145 +41,145 @@ declare class metalsmith {
 
 }
 
-declare namespace metalsmith {
-    namespace prototype {
-        function build(...args: any[]): any;
+// declare namespace metalsmith {
+//     namespace prototype {
+//         function build(...args: any[]): any;
 
-        function clean(clean: any, ...args: any[]): any;
+//         function clean(clean: any, ...args: any[]): any;
 
-        function concurrency(max: any, ...args: any[]): any;
+//         function concurrency(max: any, ...args: any[]): any;
 
-        function destination(path: any, ...args: any[]): any;
+//         function destination(path: any, ...args: any[]): any;
 
-        function directory(directory: any, ...args: any[]): any;
+//         function directory(directory: any, ...args: any[]): any;
 
-        function frontmatter(frontmatter: any, ...args: any[]): any;
+//         function frontmatter(frontmatter: any, ...args: any[]): any;
 
-        function ignore(files: any, ...args: any[]): any;
+//         function ignore(files: any, ...args: any[]): any;
 
-        function metadata(metadata: any, ...args: any[]): any;
+//         function metadata(metadata: any, ...args: any[]): any;
 
-        function path(...args: any[]): any;
+//         function path(...args: any[]): any;
 
-        function process(...args: any[]): any;
+//         function process(...args: any[]): any;
 
-        function read(...args: any[]): any;
+//         function read(...args: any[]): any;
 
-        function readFile(...args: any[]): any;
+//         function readFile(...args: any[]): any;
 
-        function run(...args: any[]): any;
+//         function run(...args: any[]): any;
 
-        function source(path: any, ...args: any[]): any;
+//         function source(path: any, ...args: any[]): any;
 
-        function use(plugin: any): any;
+//         function use(plugin: any): any;
 
-        function write(...args: any[]): any;
+//         function write(...args: any[]): any;
 
-        function writeFile(...args: any[]): any;
+//         function writeFile(...args: any[]): any;
 
-        namespace build {
-            const prototype: {
-            };
+//         namespace build {
+//             const prototype: {
+//             };
 
-        }
+//         }
 
-        namespace clean {
-            const prototype: {
-            };
+//         namespace clean {
+//             const prototype: {
+//             };
 
-        }
+//         }
 
-        namespace concurrency {
-            const prototype: {
-            };
+//         namespace concurrency {
+//             const prototype: {
+//             };
 
-        }
+//         }
 
-        namespace destination {
-            const prototype: {
-            };
+//         namespace destination {
+//             const prototype: {
+//             };
 
-        }
+//         }
 
-        namespace directory {
-            const prototype: {
-            };
+//         namespace directory {
+//             const prototype: {
+//             };
 
-        }
+//         }
 
-        namespace frontmatter {
-            const prototype: {
-            };
+//         namespace frontmatter {
+//             const prototype: {
+//             };
 
-        }
+//         }
 
-        namespace ignore {
-            const prototype: {
-            };
+//         namespace ignore {
+//             const prototype: {
+//             };
 
-        }
+//         }
 
-        namespace metadata {
-            const prototype: {
-            };
+//         namespace metadata {
+//             const prototype: {
+//             };
 
-        }
+//         }
 
-        namespace path {
-            const prototype: {
-            };
+//         namespace path {
+//             const prototype: {
+//             };
 
-        }
+//         }
 
-        namespace process {
-            const prototype: {
-            };
+//         namespace process {
+//             const prototype: {
+//             };
 
-        }
+//         }
 
-        namespace read {
-            const prototype: {
-            };
+//         namespace read {
+//             const prototype: {
+//             };
 
-        }
+//         }
 
-        namespace readFile {
-            const prototype: {
-            };
+//         namespace readFile {
+//             const prototype: {
+//             };
 
-        }
+//         }
 
-        namespace run {
-            const prototype: {
-            };
+//         namespace run {
+//             const prototype: {
+//             };
 
-        }
+//         }
 
-        namespace source {
-            const prototype: {
-            };
+//         namespace source {
+//             const prototype: {
+//             };
 
-        }
+//         }
 
-        namespace use {
-            const prototype: {
-            };
+//         namespace use {
+//             const prototype: {
+//             };
 
-        }
+//         }
 
-        namespace write {
-            const prototype: {
-            };
+//         namespace write {
+//             const prototype: {
+//             };
 
-        }
+//         }
 
-        namespace writeFile {
-            const prototype: {
-            };
+//         namespace writeFile {
+//             const prototype: {
+//             };
 
-        }
+//         }
 
-    }
+//     }
 
-}
+// }
 

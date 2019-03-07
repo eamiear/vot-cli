@@ -2,75 +2,75 @@
 
 export = request;
 
-declare function request(uri: any, options: any, callback: any): any;
+declare function request(uri?: any, options?: any, callback?: any): any;
 
 declare namespace request {
-    class Request {
-        constructor(options: any);
+    // class Request {
+    //     constructor(options: any);
 
-        abort(): void;
+    //     abort(): void;
 
-        auth(user: any, pass: any, sendImmediately: any, bearer: any): any;
+    //     auth(user: any, pass: any, sendImmediately: any, bearer: any): any;
 
-        aws(opts: any, now: any): any;
+    //     aws(opts: any, now: any): any;
 
-        debug(...args: any[]): void;
+    //     debug(...args: any[]): void;
 
-        destroy(): void;
+    //     destroy(): void;
 
-        enableUnixSocket(): void;
+    //     enableUnixSocket(): void;
 
-        end(chunk: any): void;
+    //     end(chunk: any): void;
 
-        form(form: any): any;
+    //     form(form: any): any;
 
-        getHeader(name: any, headers: any): any;
+    //     getHeader(name: any, headers: any): any;
 
-        getNewAgent(): any;
+    //     getNewAgent(): any;
 
-        hawk(opts: any): void;
+    //     hawk(opts: any): void;
 
-        httpSignature(opts: any): any;
+    //     httpSignature(opts: any): any;
 
-        init(options: any, ...args: any[]): any;
+    //     init(options: any, ...args: any[]): any;
 
-        jar(jar: any): any;
+    //     jar(jar: any): any;
 
-        json(val: any): any;
+    //     json(val: any): any;
 
-        multipart(multipart: any): any;
+    //     multipart(multipart: any): any;
 
-        oauth(_oauth: any): any;
+    //     oauth(_oauth: any): any;
 
-        onRequestError(error: any): void;
+    //     onRequestError(error: any): void;
 
-        onRequestResponse(response: any): any;
+    //     onRequestResponse(response: any): any;
 
-        pause(...args: any[]): void;
+    //     pause(...args: any[]): void;
 
-        pipe(dest: any, opts: any): any;
+    //     pipe(dest: any, opts: any): any;
 
-        pipeDest(dest: any): void;
+    //     pipeDest(dest: any): void;
 
-        qs(q: any, clobber: any): any;
+    //     qs(q: any, clobber: any): any;
 
-        readResponseBody(response: any): void;
+    //     readResponseBody(response: any): void;
 
-        resume(...args: any[]): void;
+    //     resume(...args: any[]): void;
 
-        start(): void;
+    //     start(): void;
 
-        toJSON(): any;
+    //     toJSON(): any;
 
-        write(...args: any[]): any;
+    //     write(...args: any[]): any;
 
-        static debug: any;
+    //     static debug: any;
 
-        static defaultProxyHeaderExclusiveList: string[];
+    //     static defaultProxyHeaderExclusiveList: string[];
 
-        static defaultProxyHeaderWhiteList: string[];
+    //     static defaultProxyHeaderWhiteList: string[];
 
-    }
+    // }
 
     const debug: any;
 

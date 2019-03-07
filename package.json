@@ -11,6 +11,7 @@
   },
   "types": "src/types/download-git-repo.d.ts",
   "scripts": {
+    "types": "tsc --build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

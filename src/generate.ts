@@ -10,6 +10,7 @@ import getOptions from './options'
 import logger from './logger'
 import ask from './ask'
 import filter from './filter'
+import { MetaOptions } from './type'
 
 const render = handlebars.render
 
@@ -32,18 +33,18 @@ Handlebars.registerHelper('unless_eq', function (a: any, b: any, opts: any) {
  * @param {String} dest project destination
  * @param {Function} done
  */
-export default function generate (name: string, src: string, dest: string, done: (...arg: any) => {}) {
-  const opts = getOptions(name, src)
+export default function generate (name: string, src: string, dest: string, done: any) {
+  const opts:MetaOptions = getOptions(name, src)
   // template directory for metalsmith source entry
-  const metalsmith = Metalsmith(path.join(src, 'template'))
-  const data = Object.assign(metalsmith.metadata(), {
+  const metalsmith = new Metalsmith(path.join(src, 'template'))
+  const data = Object.assign(metalsmith.metadata(''), {
     destDirName: name,
     inPlace: dest === process.cwd(),
     noEscape: true
   })
   // dynamic register handlebars helper
-  opts.helper && Object.keys(opts.helper).map(key => {
-    Handlebars.registerHelper(key, opts.helper[key])
+  opts.helpers && Object.keys(opts.helpers).map(key => {
+    Handlebars.registerHelper(key, opts.helpers[key])
   })
 
   const helpers = { chalk, logger }

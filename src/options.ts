@@ -3,13 +3,14 @@ import metadata from 'read-metadata'
 import { existsSync as exists } from 'fs'
 import getGisUser from './git-user'
 import validateName from 'validate-npm-package-name'
+import { MetaOptions } from './type'
 
 /**
  * Read prompts metadata
  * @param {String} name project name
  * @param {String} dir template source directory
  */
-export default function options (name: string, dir: string) {
+export default function options (name: string, dir: string): MetaOptions {
   const opts = getMetadata(dir)
 
   setDefault(opts, 'name', name)
