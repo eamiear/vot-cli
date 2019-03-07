@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
 import chalk from'chalk'
-const program = require('commander')
-const request = require('request')
-const ora = require('ora')
-const logger = require('../logger')
+import program from 'commander'
+import request from 'request'
+import ora from 'ora'
+import logger from '../logger'
 
 program
   .option('-r, --repo [url]', 'use a custom online repo, default: "https://api.github.com/users/ura-admin-templates/repos"')

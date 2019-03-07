@@ -1,6 +1,6 @@
 import { execSync } from 'child_process'
 
-module.exports = (): string => {
+export default (): string => {
   let name
   let email
 

@@ -2,7 +2,7 @@
 
 import chalk from 'chalk'
 import ora from 'ora'
-const envinfo = require('envinfo')
+import envinfo from 'envinfo'
 
 /**
  * Padding

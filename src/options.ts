@@ -1,15 +1,15 @@
 import path from'path'
-const metadata = require('read-metadata')
-const exists = require('fs').existsSync
-const getGisUser = require('./git-user')
-const validateName = require('validate-npm-package-name')
+import metadata from 'read-metadata'
+import { existsSync as exists } from 'fs'
+import getGisUser from './git-user'
+import validateName from 'validate-npm-package-name'
 
 /**
  * Read prompts metadata
  * @param {String} name project name
  * @param {String} dir template source directory
  */
-module.exports = function options (name: string, dir: string) {
+export default function options (name: string, dir: string) {
   const opts = getMetadata(dir)
 
   setDefault(opts, 'name', name)

@@ -1,15 +1,17 @@
-const chalk = require('chalk')
-const Metalsmith = require('metalsmith')
-const Handlebars = require('handlebars')
-import async = require('async')
-const render = require('consolidate').handlebars.render
-const path = require('path')
-const multimatch = require('multimatch')
+import chalk from 'chalk'
+import Metalsmith from 'metalsmith'
+import Handlebars from 'handlebars'
+import async from 'async'
+import { handlebars } from 'consolidate'
+import path from 'path'
+import multimatch from 'multimatch'
 
-const getOptions = require('./options')
-const logger = require('./logger')
-const ask = require('./ask')
-const filter = require('./filter')
+import getOptions from './options'
+import logger from './logger'
+import ask from './ask'
+import filter from './filter'
+
+const render = handlebars.render
 
  // register handlebars helper
 Handlebars.registerHelper('if_eq', function (a: any, b: any, opts: any) {
@@ -30,7 +32,7 @@ Handlebars.registerHelper('unless_eq', function (a: any, b: any, opts: any) {
  * @param {String} dest project destination
  * @param {Function} done
  */
-module.exports = function generate (name: string, src: string, dest: string, done: (...arg: any) => {}) {
+export default function generate (name: string, src: string, dest: string, done: (...arg: any) => {}) {
   const opts = getOptions(name, src)
   // template directory for metalsmith source entry
   const metalsmith = Metalsmith(path.join(src, 'template'))

@@ -13,7 +13,9 @@
  * //--> lint
  *
  */
-module.exports = function evalute (exp: string, data: object) {
+import chalk from 'chalk'
+
+export default function evaluate (exp: string, data: object) {
    /* eslint-disable no-new-func */
    // return value of key exp in the context of data. like data.exp
   const fn = new Function('data', 'width (data) { return ' + exp +'}')

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-const program = require('commander')
-const chalk = require('chalk')
+import program from 'commander'
+import chalk from 'chalk'
 
 // turn text to ascii
 const figlet = require('figlet');

@@ -1,18 +1,18 @@
 #!/usr/bin/env node
 
 import chalk from 'chalk'
-const download = require('download-git-repo')
-const program = require('commander')
-const exists = require('fs').existsSync
-const path = require('path')
-const ora = require('ora')
-const home = require('user-home')
-const tildify = require('tildify')
-const inquirer = require('inquirer')
-const rm = require('rimraf').sync
-const logger = require('../logger')
-const generate = require('../generate')
-const localPath = require('../local-path')
+import download from 'download-git-repo'
+import program from 'commander'
+import { existsSync as exists } from 'fs'
+import path from 'path'
+import ora from 'ora'
+import home from 'user-home'
+import tildify from 'tildify'
+import inquirer from 'inquirer'
+import { sync as rm} from 'rimraf'
+import logger from '../logger'
+import generate from '../generate'
+import localPath from '../local-path'
 
 const isLocalPath = localPath.isLocalPath
 const getTemplatePath = localPath.getTemplatePath

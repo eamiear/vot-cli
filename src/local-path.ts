@@ -1,6 +1,6 @@
 import path from 'path'
 
-module.exports = {
+export default {
   isLocalPath (templatePath: string): boolean {
     // ./ or file: etc
     return /^[./]|(^[a-zA-Z]:)/.test(templatePath)

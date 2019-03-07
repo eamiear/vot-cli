@@ -1,5 +1,5 @@
-const match = require('minimatch')
-const evaluate = require('./eval')
+import match from 'minimatch'
+import evaluate from './eval'
 
 /**
  * Filter unnecessary files
@@ -9,7 +9,7 @@ const evaluate = require('./eval')
  * @param data metalsmith.metadata()
  * @param done
  */
-module.exports = (files: any, filters: any, data: any, done: () => {}) => {
+export default (files: any, filters: any, data: any, done: () => {}) => {
   if (!filters) {
     return done()
   }

@@ -1,13 +1,13 @@
-import async = require('async')
-const inquirer = require('inquirer')
-const evalute = require('./eval')
+import async from 'async'
+import inquirer from 'inquirer'
+import evalute from './eval'
 
 const promptMapping: any = {
   string: 'input',
   boolean: 'confirm'
 }
 
-module.exports = function ask (prompts: any, data: any, done: () => {}) {
+export default function ask (prompts: any, data: any, done: () => {}) {
   async.eachSeries(Object.keys(prompts), (key: string, next) => {
     prompts(data, key, prompts[key], next)
   }, done)
