@@ -46,6 +46,21 @@ program
     require('./vot-info')
   })
 
+  // Get project structure
+program
+  .command('structure')
+  .description('create project structure')
+  .option('-r, --root', 'directory')
+  .option('-o, --output', 'output file destination')
+  .option('-p, --padding', 'padding')
+  .option('-t, --padding-times', 'padding times')
+  .option('-s, --symbol', 'char symbol')
+  .option('-l, --level', 'level or directory to show')
+  .option('-i, --ignore', 'ignore files to list')
+  .action(() => {
+    require('./vot-structure')
+  })
+
 // output help information on unknown commands
 program
   .arguments('<command>')

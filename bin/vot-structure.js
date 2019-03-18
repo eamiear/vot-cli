@@ -1,77 +1,54 @@
 #!/usr/bin/env node
 
-const fs = require("fs")
-const path = require("path")
-const os = require("os")
+const program = require('commander')
+const Structure = require('../lib/structure')
 
-class Structure {
+program
+  .option('-r, --root [cwd]', 'directory')
+  .option('-o, --output [filePath]', 'output file destination')
+  .option('-p, --padding [number]', 'padding')
+  .option('-t, --padding-times [number]', 'padding times')
+  .option('-s, --symbol [symbol string]', 'char symbol')
+  .option('-l, --level [level number]', 'level or directory to show')
+  .option('-i, --ignore [ignore list]', 'ignore files to list')
+  .parse(process.argv)
 
-  get defaultOptions () {
-    return {
-      root: '.',
-      output: 'structure.md',
-      ignore: '.git,.log,.error,node_modules',
-      padding: 0,
-      paddingTimes: 2,
-      symbol: '+----',
-      level: 3
-    }
-  }
+/**
+ * Help
+ */
+// program.on('--help', () => {
+//   console.log('  Example:')
+//   console.log()
+//   console.log(chalk.gray('   # structure a new project with an official template'))
+//   console.log('     $ structure -r . -o "struct.md" -p 1 -t 2 -s "+---" -l 2')
+//   console.log()
+// })
+/**
+ * Get templates reop url
+ */
+const root = program.root
+const output = program.output
+const padding = program.padding
+const paddingTimes = program.paddingTimes
+const symbol = program.symbol
+const level = program.level
+const ignore = program.ignore
 
-  constructor (options = {}) {
-    this.options = Object.assign({}, this.defaultOptions, options)
-    this.create(this.options)
-    return this
-  }
-  setOptions (options) {
-    this.options = Object.assign(this.options, options)
-  }
-  create (options) {
-    const {
-      root,
-      output,
-      ignore,
-      padding = 0,
-    } = options
+/**
+ * Padding
+ */
 
-    const rootPath = path.resolve(root)
-    const outputPath = path.resolve(output)
-    const treeArray = []
-    let ignorePattern = ignore.constructor === Array ? ignore.join('|').trim() : ignore.split(',').join('|').trim()
-    ignorePattern = new RegExp(`${ignorePattern}`)
-    this.setOptions({ignorePattern})
-    this._createStructure(rootPath, outputPath, treeArray, padding)
-    fs.writeFileSync(outputPath, treeArray.join(''), 'utf8')
-  }
-  _createStructure (filePath, outputPath, treeArray, padding) {
-    const {
-      paddingTimes,
-      ignorePattern,
-      symbol
-    } = this.options
+console.log()
+process.on('exit', () => {
+  console.log()
+})
 
-    const dirs = fs.readdirSync(filePath)
-    dirs.forEach(file => {
-      let targetFilePath = `${filePath}/${file}`
-      let stats = fs.statSync(targetFilePath)
-      let matched = file.trim().match(ignorePattern)
-      if (matched && matched[0]) return
-
-      if (stats.isFile()) {
-        treeArray.push(`|${this._usePadding(padding)}${file}${os.EOL}`)
-      } else if (stats.isDirectory()) {
-        treeArray.push(`|${os.EOL}`)
-        treeArray.push(`|${this._usePadding(padding)}${symbol}${file}${os.EOL}`)
-        this._createStructure(targetFilePath, outputPath, treeArray, !padding ? 2 : padding * paddingTimes)
-      }
-    })
-  }
-  _usePadding (index) {
-    let space = '', i = 0
-    for(; i < index; i++) {
-      space += ' '
-    }
-    return space
-  }
-}
-new Structure()
+new Structure({
+  root: root || '.',  // 根目录路径
+  output: output || 'structure.md', // 输出文件
+  ignore: ignore || '.git,.log,.error,node_modules,dist', // 忽略文件
+  padding: +padding || 0, // 字符间距
+  paddingTimes: +paddingTimes || 2,  // 子目录|文件 间距倍数
+  symbol: symbol || '+---', // 字符标识
+  level: +level || 2,  // 显示目录级别
+})
